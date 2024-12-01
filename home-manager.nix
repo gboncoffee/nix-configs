@@ -3,6 +3,7 @@
 let
   isNixOS = builtins.pathExists "/etc/NIXOS";
   fileDir = builtins.toString ./.;
+  wallpaper = "/home/gabriel/Pictures/wallpapers/share/anime/wp8277820-anime-coffee-wallpapers.jpg";
 in
 {
   imports = [ <home-manager/nixos> ];
@@ -138,8 +139,8 @@ in
                   };
                 }
                 "org.kde.plasma.marginsseparator"
-                "org.kde.plasma.digitalclock"
                 "org.kde.plasma.systemtray"
+                "org.kde.plasma.digitalclock"
               ];
             }
           ];
@@ -154,112 +155,111 @@ in
           };
           workspace = {
             lookAndFeel = "org.kde.breezedark.desktop";
-            wallpaper = "/home/gabriel/Pictures/wallpapers/share/anime/wp8277820-anime-coffee-wallpapers.jpg";
+            wallpaper = wallpaper;
           };
           configFile = {
-            "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
-            "dolphinrc"."ContextMenu"."ShowAddToPlaces" = false;
-            "dolphinrc"."ContextMenu"."ShowCopyToOtherSplitView" = false;
-            "dolphinrc"."ContextMenu"."ShowMoveToOtherSplitView" = false;
-            "dolphinrc"."ContextMenu"."ShowOpenInNewTab" = false;
-            "dolphinrc"."ContextMenu"."ShowOpenInSplitView" = false;
-            "dolphinrc"."ContextMenu"."ShowSortBy" = false;
-            "dolphinrc"."General"."AutoExpandFolders" = true;
-            "dolphinrc"."General"."RememberOpenedTabs" = false;
-            "dolphinrc"."General"."ShowFullPathInTitlebar" = true;
-            "dolphinrc"."General"."ViewPropsTimestamp" = "2024,11,30,14,4,51.43";
-            "dolphinrc"."KFileDialog Settings"."Places Icons Auto-resize" = false;
-            "dolphinrc"."KFileDialog Settings"."Places Icons Static Size" = 22;
-            "dolphinrc"."PreviewSettings"."Plugins" = "appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mltpreview,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,textthumbnail,ffmpegthumbs";
-            "dolphinrc"."Search"."Location" = "Everywhere";
-            "kded5rc"."Module-browserintegrationreminder"."autoload" = false;
-            "kded5rc"."Module-device_automounter"."autoload" = false;
-            "kdeglobals"."KDE"."ShowDeleteCommand" = true;
-            "kdeglobals"."KFileDialog Settings"."Allow Expansion" = false;
-            "kdeglobals"."KFileDialog Settings"."Automatically select filename extension" = true;
-            "kdeglobals"."KFileDialog Settings"."Breadcrumb Navigation" = true;
-            "kdeglobals"."KFileDialog Settings"."Decoration position" = 2;
-            "kdeglobals"."KFileDialog Settings"."LocationCombo Completionmode" = 5;
-            "kdeglobals"."KFileDialog Settings"."PathCombo Completionmode" = 5;
-            "kdeglobals"."KFileDialog Settings"."Show Bookmarks" = false;
-            "kdeglobals"."KFileDialog Settings"."Show Full Path" = false;
-            "kdeglobals"."KFileDialog Settings"."Show Inline Previews" = true;
-            "kdeglobals"."KFileDialog Settings"."Show Preview" = false;
-            "kdeglobals"."KFileDialog Settings"."Show Speedbar" = true;
-            "kdeglobals"."KFileDialog Settings"."Show hidden files" = true;
-            "kdeglobals"."KFileDialog Settings"."Sort by" = "Name";
-            "kdeglobals"."KFileDialog Settings"."Sort directories first" = true;
-            "kdeglobals"."KFileDialog Settings"."Sort hidden files last" = false;
-            "kdeglobals"."KFileDialog Settings"."Sort reversed" = false;
-            "kdeglobals"."KFileDialog Settings"."Speedbar Width" = 140;
-            "kdeglobals"."KFileDialog Settings"."View Style" = "DetailTree";
-            "kdeglobals"."PreviewSettings"."MaximumRemoteSize" = 0;
-            "kdeglobals"."WM"."activeBackground" = "49,54,59";
-            "kdeglobals"."WM"."activeBlend" = "252,252,252";
-            "kdeglobals"."WM"."activeForeground" = "252,252,252";
-            "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
-            "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
-            "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
-            "kiorc"."Confirmations"."ConfirmDelete" = true;
-            "kiorc"."Confirmations"."ConfirmEmptyTrash" = true;
-            "kiorc"."Confirmations"."ConfirmTrash" = false;
-            "kiorc"."Executable scripts"."behaviourOnLaunch" = "alwaysAsk";
-            "krunnerrc"."Plugins"."baloosearchEnabled" = false;
-            "krunnerrc"."Plugins"."browserhistoryEnabled" = false;
-            "krunnerrc"."Plugins"."browsertabsEnabled" = false;
-            "krunnerrc"."Plugins"."calculatorEnabled" = false;
-            "krunnerrc"."Plugins"."helprunnerEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_charrunnerEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_katesessionsEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_konsoleprofilesEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_placesrunnerEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_plasma-desktopEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_recentdocumentsEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_sessionsEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_spellcheckEnabled" = false;
-            "krunnerrc"."Plugins"."krunner_webshortcutsEnabled" = false;
-            "krunnerrc"."Plugins"."locationsEnabled" = false;
-            "krunnerrc"."Plugins"."org.kde.activities2Enabled" = false;
-            "krunnerrc"."Plugins"."org.kde.datetimeEnabled" = false;
-            "krunnerrc"."Plugins"."windowsEnabled" = false;
-            "krunnerrc"."Plugins/Favorites"."plugins" = "krunner_services";
-            "kscreenlockerrc"."Daemon"."Autolock" = false;
-            "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "/home/gabriel/Pictures/wallpapers/share/anime/wp8277820-anime-coffee-wallpapers.jpg";
-            "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "/home/gabriel/Pictures/wallpapers/share/anime/wp8277820-anime-coffee-wallpapers.jpg";
-            "kservicemenurc"."Show"."compressfileitemaction" = true;
-            "kservicemenurc"."Show"."decrypt-view" = true;
-            "kservicemenurc"."Show"."encrypt" = true;
-            "kservicemenurc"."Show"."extractfileitemaction" = true;
-            "kservicemenurc"."Show"."forgetfileitemaction" = false;
-            "kservicemenurc"."Show"."installFont" = false;
-            "kservicemenurc"."Show"."kactivitymanagerd_fileitem_linking_plugin" = true;
-            "kservicemenurc"."Show"."kio-admin" = true;
-            "kservicemenurc"."Show"."kleodecryptverifyfiles" = true;
-            "kservicemenurc"."Show"."kleoencryptfiles" = true;
-            "kservicemenurc"."Show"."kleoencryptfolder" = true;
-            "kservicemenurc"."Show"."kleoencryptsignfiles" = true;
-            "kservicemenurc"."Show"."kleosignencryptfolder" = true;
-            "kservicemenurc"."Show"."kleosignfilescms" = true;
-            "kservicemenurc"."Show"."kleosignfilesopenpgp" = true;
-            "kservicemenurc"."Show"."makefileactions" = false;
-            "kservicemenurc"."Show"."mountisoaction" = true;
-            "kservicemenurc"."Show"."runInKonsole" = false;
-            "kservicemenurc"."Show"."slideshowfileitemaction" = false;
-            "kservicemenurc"."Show"."tagsfileitemaction" = false;
-            "kservicemenurc"."Show"."wallpaperfileitemaction" = true;
-            "ktrashrc"."\\/home\\/gabriel\\/.local\\/share\\/Trash"."Days" = 7;
-            "ktrashrc"."\\/home\\/gabriel\\/.local\\/share\\/Trash"."LimitReachedAction" = 2;
-            "ktrashrc"."\\/home\\/gabriel\\/.local\\/share\\/Trash"."Percent" = 2;
-            "ktrashrc"."\\/home\\/gabriel\\/.local\\/share\\/Trash"."UseSizeLimit" = true;
-            "ktrashrc"."\\/home\\/gabriel\\/.local\\/share\\/Trash"."UseTimeLimit" = true;
-            "kwalletrc"."Wallet"."First Use" = false;
-            "kwinrc"."Desktops"."Number" = 1;
-            "kwinrc"."Desktops"."Rows" = 1;
-            "kwinrc"."Xwayland"."Scale" = 1;
-            "plasma-localerc"."Formats"."LANG" = "en_DK.UTF-8";
-            "plasmanotifyrc"."Applications/thunderbird"."Seen" = true;
-            "spectaclerc"."ImageSave"."translatedScreenshotsFolder" = "Screenshots";
-            "spectaclerc"."VideoSave"."translatedScreencastsFolder" = "Screencasts";
+            baloofilerc."Basic Settings".Indexing-Enabled = false;
+            dolphinrc = {
+              ContextMenu = {
+                ShowAddToPlaces = false;
+                ShowCopyToOtherSplitView = false;
+                ShowOpenInNewTab = false;
+                ShowOpenInSplitView = false;
+                ShowSortBy = false;
+              };
+              General = {
+                AutoExpandFolders = true;
+                RememberOpenedTabs = false;
+                ShowFullPathInTitlebar = true;
+              };
+            };
+            kded5rc = {
+              Module-browserintegrationreminder.autoload = false;
+              Module-device_automounter.autoload = false;
+            };
+            kdeglobals = {
+              KDE.ShowDeleteCommand = true;
+              "KFileDialog Settings" = {
+                "Allow Expansion" = false;
+                "Breadcrumb Navigation" = true;
+                "Show Bookmarks" = false;
+                "Show Full Path" = false;
+                "Show Inline Previews" = true;
+                "Show Preview" = false;
+                "Show Speedbar" = true;
+                "Sort by" = "Name";
+                "Sort directories first" = true;
+                "Sort hidden files last" = true;
+              };
+            };
+            kiorc = {
+              Confirmations = {
+                ConfirmDelete = true;
+                ConfirmEmptyTrash = true;
+                ConfirmTrash = false;
+              };
+              "Executable scripts".behaviourOnLaunch = "alwaysAsk";
+            };
+            krunnerrc.Plugins = {
+              baloosearchEnabled = false;
+              browserhistoryEnabled = false;
+              browsertabsEnabled = false;
+              calculatorEnabled = false;
+              helprunnerEnabled = false;
+              krunner_charrunnerEnabled = false;
+              krunner_katesessionsEnabled = false;
+              krunner_konsoleprofilesEnabled = false;
+              krunner_placesrunnerEnabled = false;
+              krunner_plasma-desktopEnabled = false;
+              krunner_recentdocumentsEnabled = false;
+              krunner_sessionsEnabled = false;
+              krunner_spellcheckEnabled = false;
+              krunner_webshortcutsEnabled = false;
+              locationsEnabled = false;
+              "org.kde.activities2Enabled" = false;
+              "org.kde.datetimeEnabled" = false;
+              windowsEnabled = false;
+            };
+            kscreenlockerrc = {
+              Daemon.Autolock = false;
+              "Greeter/Wallpaper/org.kde.image/General" = {
+                Image = wallpaper;
+                PreviewImage = wallpaper;
+              };
+            };
+            kservicemenurc.Show = {
+              compressfileitemaction = true;
+              decrypt-view = true;
+              encrypt = true;
+              extractfileitemaction = true;
+              forgetfileitemaction = false;
+              installFont = false;
+              kactivitymanagerd_fileitem_linking_plugin = true;
+              kio-admin = true;
+              kleodecryptverifyfiles = true;
+              kleoencryptfiles = true;
+              kleoencryptfolder = true;
+              kleoencryptsignfiles = true;
+              kleosignencryptfolder = true;
+              kleosignfilescms = true;
+              kleosignfilesopenpgp = true;
+              makefileactions = false;
+              mountisoaction = true;
+              runInKonsole = false;
+              slideshowfileitemaction = false;
+              tagsfileitemaction = false;
+              wallpaperfileitemaction = true;
+            };
+            ktrashrc."\\/home\\/gabriel\\/.local\\/share\\/Trash" = {
+              Days = 7;
+              LimitReachedAction = 2;
+              Percent = 2;
+              UseSizeLimit = true;
+              UseTimeLimit = true;
+            };
+            kwalletrc.Wallet."First Use" = false;
+            kwinrc.Xwayland.Scale = 1;
+            plasma-localerc.Formats.LANG = "en_DK.UTF-8";
           };
         };
       };
