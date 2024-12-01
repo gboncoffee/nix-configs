@@ -86,7 +86,6 @@ in {
     tmux.enable = true;
     git.enable = true;
     gnupg.agent.enable = true;
-    steam.enable = true;
     zsh.enable = true;
 
     neovim = {
@@ -187,7 +186,6 @@ in {
       geogebra6
       logisim-evolution
       unstable.discord
-      unstable.osu-lazer-bin
       unstable.vscode
       libreoffice-qt
       gimp
