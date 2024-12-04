@@ -35,6 +35,8 @@ in
           initExtra = ''
             precmd() { print -rP "" }
             setopt print_exit_value
+            bindkey ";5C" forward-word
+            bindkey ";5D" backward-word
             eval "$(direnv hook zsh)"
           '';
           shellAliases = {
