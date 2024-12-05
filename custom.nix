@@ -154,6 +154,7 @@ in {
       unstable.clang-tools
       valgrind
       gcc
+      bear
 
       # Haskell.
       ghc
