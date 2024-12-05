@@ -189,6 +189,7 @@ in {
       unstable.vscode
       libreoffice-qt
       gimp
+      rnote
 
       (wrapOBS {
         plugins = with obs-studio-plugins; [
