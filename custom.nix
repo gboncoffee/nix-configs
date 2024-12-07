@@ -6,6 +6,7 @@ in {
 
   networking = {
     networkmanager.enable = true;
+    tempAddresses = "disabled";
   };
 
   time.timeZone = "America/Sao_Paulo";
@@ -134,6 +135,7 @@ in {
       hugo
       pandoc
       unstable.yt-dlp
+      cloc
 
       #
       # Docs.
@@ -197,6 +199,12 @@ in {
           obs-pipewire-audio-capture
         ];
       })
+
+      # Other programs.
+      fortune
+      cowsay
+      gnugo
+      gnuchess
 
       # KDE.
       kdePackages.okular
