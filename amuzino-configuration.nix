@@ -20,9 +20,13 @@ in {
 
   networking.hostName = "amuzino";
 
-  # Amuzino is a personal machine, so it can have osu! and Steam installed.
+  # Amuzino is a personal machine, so it can have more games installed.
   programs.steam.enable = true;
-  environment.systemPackages = with pkgs; [ unstable.osu-lazer-bin ];
+  environment.systemPackages = with pkgs; [
+    unstable.osu-lazer-bin
+    melonDS
+    ares
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
