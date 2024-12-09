@@ -63,6 +63,7 @@ in {
         UseDns = true;
         X11Forwarding = true;
         PermitRootLogin = "no";
+        PrintMotd = true;
       };
     };
   };
@@ -104,6 +105,7 @@ in {
 
   documentation = {
     enable = true;
+    dev.enable = true;
     man = {
       enable = true;
       mandoc.enable = true;
@@ -136,6 +138,7 @@ in {
       pandoc
       unstable.yt-dlp
       cloc
+      qemu
 
       #
       # Docs.
