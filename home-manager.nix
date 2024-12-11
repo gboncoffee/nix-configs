@@ -70,18 +70,24 @@ in
         konsole = {
           enable = true;
           defaultProfile = "Profile 1";
-          profiles."Profile 1".extraConfig = {
-            Appearance.ColorScheme = "Breeze";
-            General = {
-              SemanticInputClick = true;
-              TerminalColumns = 90;
-              TerminalRows = 28;
+          profiles."Profile 1" = {
+            colorScheme = "Tokyo Night";
+            extraConfig = {
+              General = {
+                SemanticInputClick = true;
+                TerminalColumns = 90;
+                TerminalRows = 28;
+              };
             };
+          };
+          customColorSchemes = {
+            "Tokyo Night" = ./. + "/Tokyo\ Night.colorscheme";
+          };
+          extraConfig = {
             "Interaction Options" = {
               OpenLinksByDirectClickEnabled = true;
               TextEditorCmd = 1;
             };
-            "Terminal Features".VerticalLine = false;
             "Konsole Window" = {
               AllowMenuAccelerators = false;
               RememberWindowSize = false;

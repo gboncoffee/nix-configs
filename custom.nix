@@ -139,6 +139,7 @@ in {
       unstable.yt-dlp
       cloc
       qemu
+      tmux
 
       #
       # Docs.
