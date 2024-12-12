@@ -114,6 +114,8 @@ in {
     };
   };
 
+  fonts.fontconfig.useEmbeddedBitmaps = true;
+
   environment = {
     pathsToLink = [ "/share/zsh" ];
     localBinInPath = true;
