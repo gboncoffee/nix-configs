@@ -66,6 +66,8 @@ in {
         PrintMotd = true;
       };
     };
+
+    usbmuxd.enable = true;
   };
 
   # For pipewire.
