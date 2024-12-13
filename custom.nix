@@ -67,6 +67,8 @@ in {
       };
     };
 
+    fail2ban.enable = true;
+
     usbmuxd.enable = true;
   };
 
