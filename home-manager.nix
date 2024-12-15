@@ -40,6 +40,7 @@ in
             eval "$(direnv hook zsh)"
           '';
           shellAliases = {
+            grep = "grep --color=tty";
             music-dl = "yt-dlp -i -x --audio-format mp3";
             clang-format-all = "find . -name '*.[c,h]' -exec clang-format -i {} \;";
           };
