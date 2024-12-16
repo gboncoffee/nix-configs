@@ -37,6 +37,8 @@ in
             setopt print_exit_value
             bindkey ";5C" forward-word
             bindkey ";5D" backward-word
+            bindkey "^[[H" beginning-of-line
+            bindkey "^[[F" end-of-line
             eval "$(direnv hook zsh)"
           '';
           shellAliases = {
@@ -279,18 +281,22 @@ in
         text = ''
           #!/usr/bin/env bash
 
-          if [ -f shell.nix ]; then
-              echo "Directory already has a shell.nix"
+          if [ -f default.nix ]; then
+              echo "Directory already has a default.nix"
               exit 1
           fi
 
-          echo '{ pkgs ? import <nixpkgs> {} }:' >> shell.nix
-          echo 'pkgs.mkShell rec {' >> shell.nix
-          echo '  nativeBuildInputs = with pkgs.buildPackages; [' >> shell.nix
-          echo '  ];' >> shell.nix
-          echo '  buildInputs = with pkgs.buildPackages; [' >> shell.nix
-          echo '  ] ++ nativeBuildInputs;' >> shell.nix
-          echo '}' >> shell.nix
+          cat <<EOF > default.nix
+          { pkgs ? import <nixpkgs> {} }:
+          pkgs.mkShell rec {
+            nativeBuildInputs = with pkgs; [
+              # Here goes the compile-time dependencies, including programs.
+            ] ++ buildInputs;
+            buildInputs = [
+              # Here goes the runtime dependencies.
+            ];
+          }
+          EOF
 
           echo 'use_nix' > .envrc
           direnv allow .
