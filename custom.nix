@@ -147,6 +147,8 @@ in {
       qemu
       tmux
 
+      (callPackage ./pkgs/sentPDF.nix { })
+
       #
       # Docs.
       #
@@ -167,6 +169,7 @@ in {
       valgrind
       gcc
       bear
+      nix-init
 
       # Haskell.
       ghc

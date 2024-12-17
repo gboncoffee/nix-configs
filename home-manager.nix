@@ -292,7 +292,7 @@ in
             nativeBuildInputs = with pkgs; [
               # Here goes the compile-time dependencies, including programs.
             ] ++ buildInputs;
-            buildInputs = [
+            buildInputs = with pkgs; [
               # Here goes the runtime dependencies.
             ];
           }
