@@ -286,9 +286,10 @@ in
               exit 1
           fi
 
-          cat <<EOF > default.nix
+          cat <<EOF > shell.nix
           { pkgs ? import <nixpkgs> {} }:
           pkgs.mkShell rec {
+            # Nix Shells do not really differentiate between buildInputs and nativeBuildInputs.
             nativeBuildInputs = with pkgs; [
               # Here goes the compile-time dependencies, including programs.
             ] ++ buildInputs;
