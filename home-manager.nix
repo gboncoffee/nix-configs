@@ -3,7 +3,7 @@
 let
   isNixOS = builtins.pathExists "/etc/NIXOS";
   fileDir = builtins.toString ./.;
-  wallpaper = "/home/gabriel/Pictures/wallpapers/share/tokyo-night/tokyo-night34.png";
+  wallpaper = "/home/gabriel/Pictures/wallpapers/share/os-and-de/0f6oxa9y9jlb1.png";
 in
 {
   imports = [ <home-manager/nixos> ];
@@ -74,7 +74,7 @@ in
           enable = true;
           defaultProfile = "Profile 1";
           profiles."Profile 1" = {
-            colorScheme = "Tokyo Night";
+            font.size = 11;
             extraConfig = {
               General = {
                 SemanticInputClick = true;
@@ -82,9 +82,6 @@ in
                 TerminalRows = 28;
               };
             };
-          };
-          customColorSchemes = {
-            "Tokyo Night" = ./. + "/Tokyo\ Night.colorscheme";
           };
           extraConfig = {
             "Interaction Options" = {
