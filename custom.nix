@@ -85,6 +85,7 @@ in {
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };
+  security.sudo.wheelNeedsPassword = false;
 
   programs = {
     firefox.enable = true;
