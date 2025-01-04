@@ -147,6 +147,7 @@ in {
       cloc
       qemu
       tmux
+      unzip
 
       (callPackage ./pkgs/sentPDF.nix { })
 
