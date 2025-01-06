@@ -11,7 +11,6 @@
     ];
 
   boot = {
-    kernelModules = [ "ecryptfs" ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -19,11 +18,6 @@
   };
 
   networking.hostName = "amantino"; # Define your hostname.
-
-  environment.systemPackages = with pkgs; [
-    ecryptfs
-  ];
-  security.pam.enableEcryptfs = true;
 
   users.motd = ''
     Welcome to amantino.
