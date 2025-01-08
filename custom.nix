@@ -69,7 +69,10 @@ in {
 
     fail2ban.enable = true;
 
-    usbmuxd.enable = true;
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
+    };
   };
 
   # For pipewire.
@@ -148,6 +151,8 @@ in {
       qemu
       tmux
       unzip
+
+      libimobiledevice
 
       (callPackage ./pkgs/sentPDF.nix { })
 
