@@ -18,6 +18,11 @@ in {
     efi.canTouchEfiVariables = true;
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   networking.hostName = "amuzino";
 
   # Amuzino is a personal machine, so it can have more games installed.

@@ -151,6 +151,7 @@ in {
       qemu
       tmux
       unzip
+      libguestfs-with-appliance
 
       libimobiledevice
 

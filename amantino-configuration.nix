@@ -17,6 +17,11 @@
     };
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   networking.hostName = "amantino"; # Define your hostname.
 
   users.motd = ''
