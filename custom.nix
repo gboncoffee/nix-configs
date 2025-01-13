@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
-let unstable = import <nixos-unstable> { config.allowUnfree = true; };
-in {
+let
+  unstable = import <nixos-unstable> { config.allowUnfree = true; };
+  locale = "en_DK.UTF-8";
+in
+{
   console.useXkbConfig = true;
 
   networking = {
@@ -12,17 +15,17 @@ in {
   time.timeZone = "America/Sao_Paulo";
 
   i18n = {
-    defaultLocale = "en_DK.UTF-8";
+    defaultLocale = locale;
     extraLocaleSettings = {
-      LC_ADDRESS = "en_DK.UTF-8";
-      LC_IDENTIFICATION = "en_DK.UTF-8";
-      LC_MEASUREMENT = "en_DK.UTF-8";
-      LC_MONETARY = "en_DK.UTF-8";
-      LC_NAME = "en_DK.UTF-8";
-      LC_NUMERIC = "en_DK.UTF-8";
-      LC_PAPER = "en_DK.UTF-8";
-      LC_TELEPHONE = "en_DK.UTF-8";
-      LC_TIME = "en_DK.UTF-8";
+      LC_ADDRESS = locale;
+      LC_IDENTIFICATION = locale;
+      LC_MEASUREMENT = locale;
+      LC_MONETARY = locale;
+      LC_NAME = locale;
+      LC_NUMERIC = locale;
+      LC_PAPER = locale;
+      LC_TELEPHONE = locale;
+      LC_TIME = locale;
     };
   };
 
@@ -38,7 +41,7 @@ in {
 
     displayManager = {
       sddm.enable = true;
-      defaultSession = "plasma";
+      defaultSession = "plasmax11";
     };
 
     desktopManager.plasma6.enable = true;
@@ -81,7 +84,6 @@ in {
 
   # Don't forget to set a password with `passwd`.
   users = {
-    defaultUserShell = pkgs.zsh;
     users.gabriel = {
       isNormalUser = true;
       description = "Gabriel de Brito";
@@ -96,13 +98,15 @@ in {
     tmux.enable = true;
     git.enable = true;
     gnupg.agent.enable = true;
-    zsh.enable = true;
 
-    neovim = {
+    vim = {
       enable = true;
-      vimAlias = true;
-      viAlias = true;
       defaultEditor = true;
+    };
+
+    bash = {
+      completion.enable = true;
+      enableLsColors = true;
     };
 
     # KDE.
@@ -125,7 +129,6 @@ in {
   fonts.fontconfig.useEmbeddedBitmaps = true;
 
   environment = {
-    pathsToLink = [ "/share/zsh" ];
     localBinInPath = true;
 
     # I don't like the Elisa music player (I don't like any KDE player
@@ -152,6 +155,7 @@ in {
       tmux
       unzip
       libguestfs-with-appliance
+      plan9port
 
       libimobiledevice
 

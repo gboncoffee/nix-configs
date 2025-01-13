@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ -f default.nix ]; then
+    echo "Directory already has a default.nix"
+    exit 1
+fi
+
+cat <<EOF > shell.nix
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.mkShell rec {
+  # Nix Shells do not really differentiate between buildInputs and nativeBuildInputs.
+  nativeBuildInputs = with pkgs; [
+    # Here goes the compile-time dependencies, including programs.
+  ] ++ buildInputs;
+  buildInputs = with pkgs; [
+    # Here goes the runtime dependencies.
+  ];
+}
+EOF
+
+echo 'use_nix' > .envrc
+direnv allow .

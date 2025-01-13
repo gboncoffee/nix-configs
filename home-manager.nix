@@ -22,24 +22,11 @@ in
           nix-direnv.enable = true;
         };
 
-        zsh = {
+        bash = {
           enable = true;
           enableCompletion = true;
-          syntaxHighlighting.enable = true;
-          autocd = true;
-          defaultKeymap = "emacs";
-          history = {
-            size = 2000;
-            ignoreSpace = true;
-          };
-          initExtra = ''
-            precmd() { print -rP "" }
-            setopt print_exit_value
-            bindkey ";5C" forward-word
-            bindkey ";5D" backward-word
-            bindkey "^[[H" beginning-of-line
-            bindkey "^[[F" end-of-line
-            eval "$(direnv hook zsh)"
+          bashrcExtra = ''
+            eval "$(direnv hook bash)"
           '';
           shellAliases = {
             grep = "grep --color=tty";
@@ -116,8 +103,6 @@ in
           enable = true;
           panels = [
             {
-              floating = true;
-              hiding = "dodgewindows";
               widgets = [
                 {
                   kickoff = {
@@ -275,30 +260,7 @@ in
       home.file.".local/bin/mknix" = {
         enable = true;
         executable = true;
-        text = ''
-          #!/usr/bin/env bash
-
-          if [ -f default.nix ]; then
-              echo "Directory already has a default.nix"
-              exit 1
-          fi
-
-          cat <<EOF > shell.nix
-          { pkgs ? import <nixpkgs> {} }:
-          pkgs.mkShell rec {
-            # Nix Shells do not really differentiate between buildInputs and nativeBuildInputs.
-            nativeBuildInputs = with pkgs; [
-              # Here goes the compile-time dependencies, including programs.
-            ] ++ buildInputs;
-            buildInputs = with pkgs; [
-              # Here goes the runtime dependencies.
-            ];
-          }
-          EOF
-
-          echo 'use_nix' > .envrc
-          direnv allow .
-        '';
+        source = ./mknix;
       };
 
       home.stateVersion = config.system.stateVersion;
