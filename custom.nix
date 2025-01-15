@@ -113,7 +113,9 @@ in
     partition-manager.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   documentation = {
     enable = true;
@@ -160,6 +162,7 @@ in
       libimobiledevice
 
       (callPackage ./pkgs/sentPDF.nix { })
+      (callPackage ./pkgs/raylib-static.nix { })
 
       #
       # Docs.
@@ -182,6 +185,8 @@ in
       gcc
       bear
       nix-init
+
+      raylib
 
       # Haskell.
       ghc
@@ -219,11 +224,7 @@ in
       gimp
       rnote
 
-      (wrapOBS {
-        plugins = with obs-studio-plugins; [
-          obs-pipewire-audio-capture
-        ];
-      })
+      obs-studio
 
       # Other programs.
       fortune
