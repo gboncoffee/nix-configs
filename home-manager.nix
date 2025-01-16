@@ -3,7 +3,7 @@
 let
   isNixOS = builtins.pathExists "/etc/NIXOS";
   fileDir = builtins.toString ./.;
-  wallpaper = "/home/gabriel/Pictures/wallpapers/share/os-and-de/0f6oxa9y9jlb1.png";
+  wallpaper = "/home/gabriel/Pictures/wallpapers/share/aenami/alena-aenami-far-from-tomorrow-1080px.jpg";
 in
 {
   imports = [ <home-manager/nixos> ];
