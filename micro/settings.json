@@ -1,0 +1,40 @@
+{
+	"autosave": 3,
+	"autosu": true,
+	"colorcolumn": 80,
+	"cursorline": false,
+	"diffgutter": true,
+	"hlsearch": true,
+	"hltaberrors": true,
+	"hltrailingws": true,
+	"indentchar": "|",
+	"matchbraceleft": true,
+	"parsecursor": true,
+
+	"tabsize": 8,
+	"tabstospaces": false,
+
+	"*.go": {
+		"tabsize": 4
+	},
+	"*.c": {
+		"tabstospaces": true,
+		"tabsize": 4
+	},
+	"*.cpp": {
+		"tabstospaces": true,
+		"tabsize": 4
+	},
+	"*.hs": {
+		"tabstospaces": true,
+		"tabsize": 2
+	},
+	"*.lua": {
+		"tabstospaces": true,
+		"tabsize": 2
+	},
+	"*.nix": {
+		"tabstospaces": true,
+		"tabsize": 2
+	}
+}

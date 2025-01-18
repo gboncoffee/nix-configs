@@ -98,11 +98,7 @@ in
     tmux.enable = true;
     git.enable = true;
     gnupg.agent.enable = true;
-
-    vim = {
-      enable = true;
-      defaultEditor = true;
-    };
+    vim.enable = true;
 
     bash = {
       completion.enable = true;
@@ -131,6 +127,8 @@ in
   environment = {
     localBinInPath = true;
 
+    variables.EDITOR = "micro";
+
     # I don't like the Elisa music player (I don't like any KDE player
     # actually).
     plasma6.excludePackages = with pkgs; [
@@ -156,6 +154,7 @@ in
       unzip
       libguestfs-with-appliance
       plan9port
+      micro-full
 
       libimobiledevice
 

@@ -263,6 +263,16 @@ in
         source = ./mknix;
       };
 
+      home.file.".config/micro/settings.json" = {
+        enable = true;
+        source = ./micro/settings.json;
+      };
+
+      home.file.".config/micro/bindings.json" = {
+        enable = true;
+        source = ./micro/bindings.json;
+      };
+
       home.stateVersion = config.system.stateVersion;
     };
   };
