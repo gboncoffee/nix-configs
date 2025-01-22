@@ -10,6 +10,7 @@
 	"indentchar": "|",
 	"matchbraceleft": true,
 	"parsecursor": true,
+	"colorscheme": "simple",
 
 	"tabsize": 8,
 	"tabstospaces": false,
