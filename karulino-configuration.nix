@@ -18,14 +18,9 @@ in {
     efi.canTouchEfiVariables = true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
+  networking.hostName = "karulino";
 
-  networking.hostName = "amuzino";
-
-  # Amuzino is a personal machine, so it can have more games installed.
+  # Karulino is a personal machine, so it can have more games installed.
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     unstable.osu-lazer-bin
@@ -34,8 +29,8 @@ in {
   ];
 
   users.motd = ''
-    Welcome to amuzino.
-    "amuzino" means "Funny girl".
+    Welcome to karulino.
+    "karulino" means "The girl for whom I care".
   '';
 
   # This value determines the NixOS release from which the default
@@ -44,5 +39,5 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

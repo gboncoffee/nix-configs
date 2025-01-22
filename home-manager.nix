@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   isNixOS = builtins.pathExists "/etc/NIXOS";
   fileDir = builtins.toString ./.;
-  wallpaper = "/home/gabriel/Pictures/wallpapers/share/aenami/alena-aenami-far-from-tomorrow-1080px.jpg";
+  wallpaper = "/home/gabriel/Pictures/wallpapers/share/random/apple2.jpg";
 in
 {
   imports = [ <home-manager/nixos> ];
@@ -125,13 +125,25 @@ in
                       "applications:cantata.desktop"
                       # Only add osu! and Steam to Amuzino as it's the personal
                       # machine.
-                    ] ++ (if config.networking.hostName == "amuzino" then [
+                    ] ++ (if config.networking.hostName == "karulino" then [
                       "applications:osu!.desktop"
                       "applications:steam.desktop"
                     ] else [ ]);
                   };
                 }
                 "org.kde.plasma.marginsseparator"
+                {
+                  systemMonitor = {
+                    displayStyle = "org.kde.ksysguard.textonly";
+                    sensors = [
+                      {
+                        name = "cpu/all/maximumTemperature";
+                        label = "CPU";
+                        color = "189,233,61";
+                      }
+                    ];
+                  };
+                }
                 "org.kde.plasma.systemtray"
                 "org.kde.plasma.digitalclock"
               ];
