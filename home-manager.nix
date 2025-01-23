@@ -10,11 +10,16 @@ in
 
   home-manager = {
     useGlobalPkgs = isNixOS;
-    backupFileExtension = ".bak";
+    backupFileExtension = "bak";
     users.gabriel = { ... }: {
       imports = [ <plasma-manager/modules> ];
 
       targets.genericLinux.enable = ! isNixOS;
+
+      home.packages = with pkgs; [
+        #graphite-cursors
+        #graphite-kde-theme
+      ];
 
       programs = {
         direnv = {
@@ -61,12 +66,19 @@ in
           enable = true;
           defaultProfile = "Profile 1";
           profiles."Profile 1" = {
-            font.size = 11;
+            font = {
+              size = 12;
+              name = "Liberation Mono";
+            };
             extraConfig = {
               General = {
                 SemanticInputClick = true;
                 TerminalColumns = 90;
                 TerminalRows = 28;
+              };
+              Scrolling = {
+                HighlightScrolledLines = false;
+                ScrollBarPosition = 2;
               };
             };
           };
@@ -196,6 +208,14 @@ in
                 "Sort directories first" = true;
                 "Sort hidden files last" = true;
               };
+              WM.activeFont = "Liberation Sans,11,-1,5,700,0,0,0,0,0,0,0,0,0,0,1,Bold";
+              General = {
+                fixed = "Liberation Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                font = "Liberation Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                menuFont = "Liberation Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                smallestReadableFont = "Liberation Sans,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                toolBarFont = "Liberation Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+              };
             };
             kiorc = {
               Confirmations = {
@@ -267,6 +287,11 @@ in
             plasma-localerc.Formats.LANG = "en_DK.UTF-8";
           };
         };
+      };
+
+      gtk = {
+        enable = true;
+        theme.name = "Breeze-Dark";
       };
 
       home.file.".local/bin/mknix" = {

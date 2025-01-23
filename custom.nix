@@ -122,7 +122,15 @@ in
     };
   };
 
-  fonts.fontconfig.useEmbeddedBitmaps = true;
+  fonts = {
+    fontconfig.useEmbeddedBitmaps = true;
+    packages = with pkgs; [
+      vistafonts
+      corefonts
+      fragment-mono
+      helvetica-neue-lt-std
+    ];
+  };
 
   environment = {
     localBinInPath = true;
