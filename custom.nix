@@ -48,15 +48,6 @@ in
 
     printing.enable = true;
 
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
-    };
-
     openssh = {
       enable = true;
       ports = [ 22 ];
@@ -76,18 +67,21 @@ in
       enable = true;
       package = pkgs.usbmuxd2;
     };
+
+    pipewire.enable = false;
   };
 
-  # For pipewire.
-  security.rtkit.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio = {
+   enable = true;
+   support32Bit = true;
+  };
 
   # Don't forget to set a password with `passwd`.
   users = {
     users.gabriel = {
       isNormalUser = true;
       description = "Gabriel de Brito";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "audio" ];
     };
   };
   security.sudo.wheelNeedsPassword = false;
@@ -99,6 +93,8 @@ in
     git.enable = true;
     gnupg.agent.enable = true;
     vim.enable = true;
+    dconf.enable = true;
+    obs-studio.enable = true;
 
     bash = {
       completion.enable = true;
@@ -109,7 +105,10 @@ in
     partition-manager.enable = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    pulseaudio = true;
+  };
 
   documentation = {
     enable = true;
@@ -129,6 +128,18 @@ in
       corefonts
       fragment-mono
       helvetica-neue-lt-std
+      go-font
+      roboto
+      roboto-mono
+      lmodern
+      sn-pro
+      nacelle
+      mona-sans
+      hubot-sans
+      cm_unicode
+      _0xpropo
+      _0xproto
+      oxygenfonts
     ];
   };
 
@@ -225,12 +236,6 @@ in
       libreoffice-qt
       gimp
       rnote
-
-      (wrapOBS {
-        plugins = with obs-studio-plugins; [
-          obs-pipewire-audio-capture
-        ];
-      })
 
       # Other programs.
       fortune

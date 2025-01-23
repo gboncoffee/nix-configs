@@ -3,14 +3,14 @@
 let
   isNixOS = builtins.pathExists "/etc/NIXOS";
   fileDir = builtins.toString ./.;
-  wallpaper = "/home/gabriel/Pictures/wallpapers/share/random/apple2.jpg";
+  wallpaper = "/home/gabriel/Pictures/wallpapers/share/dark/anime-girl-office.jpg";
 in
 {
   imports = [ <home-manager/nixos> ];
 
   home-manager = {
     useGlobalPkgs = isNixOS;
-    backupFileExtension = "bak";
+    backupFileExtension = "back";
     users.gabriel = { ... }: {
       imports = [ <plasma-manager/modules> ];
 
@@ -68,7 +68,7 @@ in
           profiles."Profile 1" = {
             font = {
               size = 12;
-              name = "Liberation Mono";
+              name = "Fragment Mono";
             };
             extraConfig = {
               General = {
@@ -208,13 +208,13 @@ in
                 "Sort directories first" = true;
                 "Sort hidden files last" = true;
               };
-              WM.activeFont = "Liberation Sans,11,-1,5,700,0,0,0,0,0,0,0,0,0,0,1,Bold";
+              WM.activeFont = "TeX Gyre Heros,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
               General = {
-                fixed = "Liberation Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-                font = "Liberation Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-                menuFont = "Liberation Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-                smallestReadableFont = "Liberation Sans,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
-                toolBarFont = "Liberation Sans,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                fixed = "Fragment Mono,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                font = "TeX Gyre Heros,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                menuFont = "TeX Gyre Heros,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                smallestReadableFont = "TeX Gyre Heros,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
+                toolBarFont = "TeX Gyre Heros,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
               };
             };
             kiorc = {
