@@ -26,12 +26,27 @@ in {
     unstable.osu-lazer-bin
     melonDS
     ares
+
+    # It also needs AMD gpu stuff.
+    amdgpu_top
   ];
 
   users.motd = ''
     Welcome to karulino.
     "karulino" means "The girl for whom I care".
   '';
+
+  # Karulino needs special config due to AMD.
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.graphics = {
+    extraPackages = with pkgs; [
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
