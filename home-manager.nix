@@ -294,20 +294,46 @@ in
         theme.name = "Breeze-Dark";
       };
 
-      home.file.".local/bin/mknix" = {
+      home.file = {
+        ".local/bin/mknix" = {
+          enable = true;
+          executable = true;
+          source = ./bin/mknix;
+        };
+
+        ".local/bin/acme" = {
+          enable = true;
+          executable = true;
+          source = ./bin/acme;
+        };
+
+        ".local/bin/9term" = {
+          enable = true;
+          executable = true;
+          source = ./bin/9term;
+        };
+
+        ".local/bin/sam" = {
+          enable = true;
+          executable = true;
+          source = ./bin/sam;
+        };
+
+        ".local/bin/9env" = {
         enable = true;
         executable = true;
-        source = ./mknix;
+          source = ./bin/9env;
       };
 
-      home.file.".config/micro/settings.json" = {
+        ".config/micro/settings.json" = {
         enable = true;
         source = ./micro/settings.json;
       };
 
-      home.file.".config/micro/bindings.json" = {
+        ".config/micro/bindings.json" = {
         enable = true;
         source = ./micro/bindings.json;
+        };
       };
 
       home.stateVersion = config.system.stateVersion;

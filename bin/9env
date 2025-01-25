@@ -1,0 +1,19 @@
+#!/usr/bin/env -S 9 bash
+
+export SHELL=$(9 which rc)
+export shell=$SHELL
+export acmeshell=$SHELL
+export tabstop=4
+export PAGER=nobs
+export font='/mnt/font/FragmentMono-Regular/10a/font'
+
+# 9 puts Plan 9 in the front of the path.
+export PATH="$HOME/.local/bin:$PATH"
+
+fontsrv &
+plumber &
+
+rc
+
+kill $(pgrep fontsrv)
+kill $(pgrep plumber)
